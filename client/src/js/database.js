@@ -35,15 +35,4 @@ export const getDb = async () => {
   return result;
 }
 
-export const getOneDb = async (id) => {
-  console.log('GET one from database');
-  const jateDb = await openDB('jate', 1);
-  const rw = jateDb.transaction('jate', 'readonly');
-  const store = rw.objectStore('jate');
-  const request = store.get(id);
-  const result = await request;
-  console.log('result.value', result);
-  return result;
-}
-
 initdb();
